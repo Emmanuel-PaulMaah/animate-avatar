@@ -1,4 +1,4 @@
-import Peer from "https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js";
+// PeerJS is now available as global "Peer"
 const statusEl = document.getElementById("status");
 const yawEl = document.getElementById("yaw");
 const pitchEl = document.getElementById("pitch");
@@ -14,7 +14,7 @@ btnHost.onclick = () => {
   if (!room) return alert("enter room id first");
   const myId = room + "-tracker";
 
-  peer = new Peer(myId, { host: "peerjs.com", port: 443, secure: true }); // public broker
+  peer = new Peer(myId, { host: "peerjs.com", port: 443, secure: true });
   peer.on("open", id => setStatus(`hosting as "${id}" — share room id "${room}" with phone`));
   peer.on("connection", c => {
     conn = c;
