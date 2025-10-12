@@ -6,17 +6,65 @@
   <title>ar receiver</title>
   <style>
     html,body{margin:0;height:100%;background:#000;overflow:hidden;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    #ui{position:fixed;left:50%;transform:translateX(-50%);bottom:env(safe-area-inset-bottom,16px);display:flex;gap:8px}
-    #ui input, #ui button{padding:10px;border-radius:10px;border:0}
+    #ui{position:fixed;left:50%;transform:translateX(-50%);bottom:env(safe-area-inset-bottom,16px);display:flex;gap:8px;z-index:10}
+    #ui input, #ui button{padding:10px 12px;border-radius:10px;border:0;font-size:14px}
     #enterAR{background:#fff}
+    #hud{
+      position:fixed;top:8px;left:8px;right:8px;z-index:20;
+      display:flex;flex-direction:column;gap:6px;pointer-events:none
+    }
+    .card{
+      background:rgba(0,0,0,.55);color:#fff;border:1px solid rgba(255,255,255,.2);
+      border-radius:12px;padding:10px;backdrop-filter:blur(6px)
+    }
+    .row{display:flex;flex-wrap:wrap;gap:6px}
+    .pill{
+      font-size:12px;padding:6px 8px;border-radius:999px;background:#111;color:#eee;border:1px solid rgba(255,255,255,.18)
+    }
+    .pill.ok{background:#0d341c;border-color:#2cc36b}
+    .pill.warn{background:#332b0e;border-color:#f6c343}
+    .pill.err{background:#3a1212;border-color:#ff6b6b}
+    #log{max-height:36vh;overflow:auto;font-family:ui-monospace,Consolas,monospace;font-size:12px;white-space:pre-wrap}
+    #toast{
+      position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,16px) + 64px);
+      background:#111;color:#fff;border:1px solid rgba(255,255,255,.2);padding:10px 12px;border-radius:10px;z-index:30;display:none
+    }
+    #debugToggle{
+      position:fixed;right:10px;top:10px;z-index:40;padding:8px 10px;border-radius:10px;border:0;
+      background:#fff;color:#000;font-size:12px
+    }
   </style>
 </head>
 <body>
+  <button id="debugToggle">debug</button>
+
+  <div id="hud">
+    <div class="card">
+      <div class="row">
+        <div id="xrSupport" class="pill">xr: ?</div>
+        <div id="arSupport" class="pill">immersive-ar: ?</div>
+        <div id="sessionState" class="pill">session: none</div>
+        <div id="hitState" class="pill">hit-test: none</div>
+        <div id="connState" class="pill">peer: disconnected</div>
+        <div id="placeState" class="pill">placed: no</div>
+        <div id="dataState" class="pill">data: none</div>
+        <div id="fps" class="pill">fps: --</div>
+      </div>
+    </div>
+    <div id="logWrap" class="card" style="display:none">
+      <div style="font-weight:600;margin-bottom:4px">events</div>
+      <div id="log"></div>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
   <div id="ui">
     <input id="room" placeholder="room id" />
     <button id="connect">connect</button>
     <button id="enterAR">enter ar</button>
   </div>
+
   <script type="module" src="./ar.js"></script>
 </body>
 </html>
