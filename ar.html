@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>ar receiver</title>
+  <style>
+    html,body{margin:0;height:100%;background:#000;overflow:hidden;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    #ui{position:fixed;left:50%;transform:translateX(-50%);bottom:env(safe-area-inset-bottom,16px);display:flex;gap:8px}
+    #ui input, #ui button{padding:10px;border-radius:10px;border:0}
+    #enterAR{background:#fff}
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <input id="room" placeholder="room id" />
+    <button id="connect">connect</button>
+    <button id="enterAR">enter ar</button>
+  </div>
+  <script type="module" src="./ar.js"></script>
+</body>
+</html>
