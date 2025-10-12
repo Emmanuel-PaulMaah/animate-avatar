@@ -10,6 +10,8 @@
     input[type="range"]{width:360px}
     #status{margin-top:10px;font-size:14px;color:#555}
   </style>
+  <!-- load peerjs as a global -->
+  <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js"></script>
 </head>
 <body>
   <h3>pc → phone (pose sender)</h3>
@@ -22,6 +24,7 @@
   <label>pitch</label><input id="pitch" type="range" min="-1.57" max="1.57" step="0.01" value="0"/>
   <label>roll</label><input id="roll" type="range" min="-1.57" max="1.57" step="0.01" value="0"/>
 
+  <!-- our script now runs after peerjs global is loaded -->
   <script type="module" src="./tracker.js"></script>
 </body>
 </html>
