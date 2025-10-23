@@ -1,15 +1,59 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<title> animate avatar </title>
-<style>
-  body {background-color: black;}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animate Avatar</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h6 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 10px;
+      color: white;
+      background-color: #1e90ff;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .button:hover {
+      background-color: #63b3ff;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 600px) {
+      .button {
+        width: 80%;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h6> animate avatar </h6>
-  <a href="https://emmanuel-paulmaah.github.io/animate-avatar/ar.html" class="button"> ar html </a>
-  <a href="https://emmanuel-paulmaah.github.io/animate-avatar/tracker.html" class="button"> tracker html </a>
+  <h6>Animate Avatar</h6>
+  <a href="https://emmanuel-paulmaah.github.io/animate-avatar/ar.html" class="button">phone</a>
+  <a href="https://emmanuel-paulmaah.github.io/animate-avatar/tracker.html" class="button">pc</a>
 </body>
 </html>
